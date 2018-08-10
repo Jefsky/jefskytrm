@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>运单轨迹查询</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"> 
+<link href="__CSS__/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+<link href="__CSS__/font-awesome.css" rel="stylesheet">
+<link href="http://libs.useso.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css">
+<link href="__CSS__/pages/signin.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+	
+<include file="Index:header" /><!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+    <div class="container">
+      <ul class="mainnav">
+        <li><a href="__APP__/Index/admin_index"><i class="icon-list-alt"></i><span>运单管理</span> </a> </li>
+        <li><a href="__APP__/Index/add_order.html"><i class="icon-edit"></i><span>增加运单</span> </a> </li>
+        <li><a href="__APP__/Index/admin"><i class="icon-group"></i><span>用户管理</span> </a> </li>
+        <li class="active"><a href="javascript:;"><i class="icon-cogs "></i><span>增加用户</span> </a> </li> 
+      </ul>
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /subnavbar-inner --> 
+</div>
+
+
+<div class="account-container">
+	
+	<div class="content clearfix">
+		
+		<form action="/admin.php/Index/ad_admin" method="post">
+		
+			<h1>增加用户</h1>		
+			
+			<div class="login-fields">
+				
+				
+				<div class="field">
+					<label for="username">用户名：</label>
+					<input type="text" id="username" name="a_name"  placeholder="用户名" class="login username-field" />
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<label for="password">密码:</label>
+					<input type="password" id="password" name="a_pwd"  placeholder="密码" class="login password-field"/>
+				</div> <!-- /password -->
+				
+			</div> <!-- /login-fields -->
+			
+			<div class="login-actions">
+									
+				<button class="button btn btn-success btn-large" id="login">确定</button>
+				
+			</div> <!-- .actions -->
+			
+			
+			
+		</form>
+		
+	</div> <!-- /content -->
+	
+</div> <!-- /account-container -->
+
+
+
+<div class="login-extra">
+	
+</div> <!-- /login-extra -->
+
+
+<script src="__JS__/jquery-1.7.2.min.js"></script>
+<script src="__JS__/bootstrap.js"></script>
+<script type="text/javascript">
+	$("#login").click( function () {
+		if($("#username").val()==""){
+			alert("用户名不能为空");
+			return false;
+		}else if($("#password").val()==""){
+			alert("密码不能为空");
+			return false;
+		}
+		
+	});
+</script>
+</body>
+
+</html>

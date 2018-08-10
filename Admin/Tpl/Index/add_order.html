@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>运单轨迹查询-后台管理系统</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+<link href="__CSS__/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://fonts.useso.com/css?family=Open+Sans:400italic,600italic,400,600"rel="stylesheet">
+<link href="__CSS__/font-awesome.css" rel="stylesheet">
+<link href="__CSS__/style.css" rel="stylesheet">
+<link href="__CSS__/pages/dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="__CSS__/jquery-ui.css">
+<link rel="stylesheet" href="__CSS__/newDatePick.css">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<include file="Index:header" />
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+    <div class="container">
+      <ul class="mainnav">
+        <li><a href="__APP__/Index/admin_index"><i class="icon-list-alt"></i><span>运单管理</span> </a> </li>
+        <li class="active"><a href="javascript:;"><i class="icon-edit"></i><span>增加运单</span> </a> </li>
+        <li><a href="__APP__/Index/admin"><i class=" icon-group "></i><span>用户管理</span> </a> </li>
+        <li><a href="__APP__/Index/add_admin.html"><i class="icon-cogs "></i><span>增加用户</span> </a> </li> 
+      </ul>
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /subnavbar-inner --> 
+</div>
+<!-- /subnavbar -->
+<div class="main">
+	
+	<div class="main-inner">
+
+	    <div class="container">
+	
+	      <div class="row">
+	      	
+	      	<div class="span12">      		
+	      		
+	      		<div class="widget ">
+	      			
+	      			<div class="widget-header">
+	      				<i class="icon-edit "></i>
+	      				<h3>增加运单</h3>
+	  				</div> <!-- /widget-header -->
+					
+					<div class="widget-content">
+						
+						
+						
+						<div class="tabbable">
+
+						
+						<br>
+						
+							<div class="tab-content">
+								<div class="tab-pane active" id="formcontrols">
+								<form id="edit-profile" class="form-horizontal" action="__APP__/Index/ad_order" method="post">
+									<fieldset>
+										<div class="alert alert-info" style="width:700px;">
+                                              基本信息
+										</div>
+										<div class="control-group">											
+											<label class="control-label" for="o_yunid">运单号</label>
+											<div class="controls">
+												<input type="text" class="span4" id="o_yunid" name="o_yid" >
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										
+										<div class="control-group">											
+											<label class="control-label" for="o_zhuangid">转单号</label>
+											<div class="controls">
+												<input type="text" class="span4" id="o_zhuangid" name="o_zid" >
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										
+										<div class="control-group">											
+											<label class="control-label" for="o_date">日期时间</label>
+											<div class="controls">
+												<input type="text" class="span4" id="w_date" name="o_date" >
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										
+										<div class="control-group">											
+											<label class="control-label" for="o_end">目的地</label>
+											<div class="controls">
+												<input type="text" class="span4" id="o_end" name="o_end" >
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										
+										<div class="control-group">											
+											<label class="control-label" for="o_content">说明</label>
+											<div class="controls">
+												<input type="text" class="span6" id="o_content" name="o_content" >
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+										<div class="form-actions">
+											<input type="submit" class="btn btn-primary" value="保存"></input> 
+											<input type="button" class="btn" onclick="javascript:history.back(-1);" value="取消"></input> 
+										</div> <!-- /form-actions -->
+									</fieldset>
+								</form>
+								</div>
+	
+							</div>
+
+						</div>
+
+					</div> <!-- /widget-content -->
+						
+				</div> <!-- /widget -->
+	      		
+		    </div> <!-- /span8 -->
+
+	      </div> <!-- /row -->
+	
+	    </div> <!-- /container -->
+	    
+	</div> <!-- /main-inner -->
+    
+</div> 
+<!-- /main -->
+
+<include file="Index:footer" />
+<!-- /footer --> 
+<!-- Le javascript
+================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="__JS__/jquery-1.7.2.min.js"></script> 
+<script src="__JS__/excanvas.min.js"></script> 
+<script src="__JS__/chart.min.js" type="text/javascript"></script> 
+<script src="__JS__/bootstrap.js"></script>
+<script language="javascript" type="text/javascript" src="__JS__/full-calendar/fullcalendar.min.js"></script>
+<script src="__JS__/jquery-ui.js"></script>
+<script src="__JS__/newDatePick.js"></script>
+<script src="__JS__/jquery-rollValue.js"></script>
+<script type="text/javascript" >
+ $(function() {
+	    $("#w_date").newDatePick({isTime:true}); 
+  });
+</script>
+<script src="__JS__/base.js"></script> 
+
+</body>
+</html>
