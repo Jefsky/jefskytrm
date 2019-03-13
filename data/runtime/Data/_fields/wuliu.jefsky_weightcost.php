@@ -1,0 +1,1 @@
+a:8:{i:0;s:2:"id";i:1;s:7:"country";i:2;s:12:"first_weight";i:3;s:17:"additional_weight";i:4;s:12:"country_code";i:5;s:10:"unit_price";s:3:"_pk";s:2:"id";s:5:"_type";a:6:{s:2:"id";s:7:"int(11)";s:7:"country";s:12:"varchar(100)";s:12:"first_weight";s:5:"float";s:17:"additional_weight";s:5:"float";s:12:"country_code";s:12:"varchar(100)";s:10:"unit_price";s:5:"float";}}

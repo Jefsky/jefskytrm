@@ -1,0 +1,86 @@
+<admintpl file="header" />
+</head>
+
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="{:U('Freight/index')}" data-toggle="tab">运费设置</a></li>
+        </ul>
+        <form class="form-horizontal js-ajax-forms" action="{:U('Freight/index')}" method="post">
+            <fieldset>
+                <div class="tabbable">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="A">
+                            <fieldset>
+                                <!-- <div class="control-group">
+                                    <label class="control-label">首重费用</label>
+                                    <div class="controls">
+                                        <input type="text" name="freight[fwc]" value="{$freight['fwc']}"><span class="form-required">*</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">续重费用</label>
+                                    <div class="controls">
+                                        <input type="text" name="freight[awc]" value="{$freight['awc']}"><span class="form-required">*</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">燃油附加费</label>
+                                    <div class="controls">
+                                        <input type="text" name="freight[fs]" value="{$freight['fs']}"><span class="form-required">填写规范：‘10%’应填为‘0.1’</span>
+                                    </div>
+                                </div> -->
+                                <div class="control-group">
+                                    <label class="control-label">重量界限（KG）</label>
+                                    <div class="controls">
+                                        <input type="text" name="freight[jx]" value="{$freight['jx']}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">折扣</label>
+                                    <div class="controls">
+                                        <input type="text" name="freight[discount]" value="{$freight['discount']}"><span class="form-required">填写规范：‘10%’应填为‘0.1’，无折扣时填‘1’</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">包装费</label>
+                                    <div class="controls">
+                                        <input type="text" name="freight[bagging]" value="{$freight['bagging']}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">其他费用</label>
+                                    <div class="controls">
+                                        <input type="text" name="freight[else]" value="{$freight['else']}">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary  js-ajax-submit">保存</button>
+                    <hr/>
+                    <!-- <p>在界限重量之内不包含界限重量的计算公式</p>
+                    <p>*首重运费＋(重量（公斤）×2－1)×续重运费 <br/> *总费用＝(运费＋燃油附加费)×折扣＋包装费用＋其它费用</p>
+                    <hr/>
+                    <p>在界限重量之外的计算公式</p>
+                    <p>*界限重量运费：首重费用 + （ 界限重量 * 2 - 1 ） * 续重费用 
+                        <br/> *界限重量总费：界限重量运费 * （ 1 + 燃油费 ）
+                        <br/> *最终总费:（(货物总费） 超出重量 * 单价 * （ 1 + 燃油费 ） + 界限重量总费) * 折扣 + 包装费 + 其他费用
+                    </p> -->
+                    <p>21内</p>
+                    <p>总费用 = （首重+（重量*2-1）*续重）*燃油附加费+杂费</p>
+                    <p>21外</p>
+                    <p>总费用 = 重量*单价*燃油附加费+杂费 </p>
+                </div>
+            </fieldset>
+        </form>
+
+
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+</body>
+
+</html>

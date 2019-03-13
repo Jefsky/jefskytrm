@@ -1,0 +1,6 @@
+[ 2018-05-31T02:02:37+08:00 ] 106.38.241.123 /index.php/api/oauth/login/type/qq
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+
+[ 2018-05-31T02:02:58+08:00 ] 106.38.241.123 /index.php/api/oauth/login/type/sina
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+

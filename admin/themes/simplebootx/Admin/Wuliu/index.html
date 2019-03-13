@@ -1,0 +1,112 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">轨迹管理</a></li>
+		</ul>
+		<form class="well form-search" method="post" action="{:U('Wuliu/index')}">
+			运单号：
+			<input type="text" name="w_yid" style="width: 150px;" value="{$formget.w_yid}" placeholder="请输入运单号..."> &nbsp; &nbsp;
+			区域： 
+			<input type="text" name="w_place" style="width: 150px;" value="{$formget.w_place}" placeholder="请输入目的地..."> &nbsp; &nbsp;
+                        时间： 
+			<input type="text" name="w_date" style="width: 120px;" value="{$formget.w_date}" class="js-datetime" placeholder="请输入时间..."> &nbsp; &nbsp;
+                        关键字： 
+			<input type="text" name="w_content" style="width: 200px;" value="{$formget.w_content}" placeholder="请输入关键字..."> &nbsp; &nbsp;
+			<input type="submit" class="btn btn-primary" value="搜索" />
+		</form>
+		<form class="js-ajax-form" action="" method="post">
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('Wuliu/delete')}" data-subcheck="true" data-msg="你确定删除吗？">{:L('DELETE')}</button>
+				
+			</div>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th>运单号</th>
+						<th>日期时间</th>
+						<th>区域</th>
+						<th>说明</th>
+						<th>{:L('ACTIONS')}</th>
+					</tr>
+				</thead>
+				<foreach name="wuliu" item="vo">
+				<tr>
+					<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"></td>
+					<td>{$vo.w_yid}</td>
+                                        <td>{$vo.w_date}</td>
+                                        <td>{$vo.w_place}</td>
+                                        <td>{$vo.w_content}</td>
+					</td>
+					<td>    
+                                            <!-- <a href="{:U('Wuliu/edit',array('id'=>$vo['id']))}">修改</a> |  -->
+                                            <a href="{:U('Wuliu/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a>
+                                        </td>
+				</tr>
+				</foreach>
+				<tfoot>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th>运单号</th>
+						<th>日期时间</th>
+						<th>目的地</th>
+						<th>说明</th>
+						<th>{:L('ACTIONS')}</th>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('Wuliu/delete')}" data-subcheck="true" data-msg="你确定删除吗？">{:L('DELETE')}</button>
+				
+			</div>
+			<div class="pagination">{$Page}</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		function refersh_window() {
+			var refersh_time = getCookie('refersh_time');
+			if (refersh_time == 1) {
+				window.location = "{:U('Wuliu/index',$formget)}";
+			}
+		}
+		setInterval(function() {
+			refersh_window();
+		}, 2000);
+		$(function() {
+			setCookie("refersh_time", 0);
+			Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+				//批量移动
+				$('.js-articles-move').click(function(e) {
+					var str = 0;
+					var id = tag = '';
+					$("input[name='ids[]']").each(function() {
+						if ($(this).attr('checked')) {
+							str = 1;
+							id += tag + $(this).val();
+							tag = ',';
+						}
+					});
+					if (str == 0) {
+						art.dialog.through({
+							id : 'error',
+							icon : 'error',
+							content : '您没有勾选信息，无法进行操作！',
+							cancelVal : '关闭',
+							cancel : true
+						});
+						return false;
+					}
+					var $this = $(this);
+					art.dialog.open("__ROOT__/index.php?g=portal&m=Wuliu&a=move&ids="+ id, {
+						title : "批量移动",
+						width : "80%"
+					});
+				});
+			});
+		});
+	</script>
+</body>
+</html>
